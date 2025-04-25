@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import TripsPage from "./pages/TripsPage";
 import CreateTripPage from "./pages/CreateTripPage";
+import JoinTripPage from "./pages/JoinTripPage";
 import TripDetailsPage from "./pages/TripDetailsPage";
 import AddPhotoPage from "./pages/AddPhotoPage";
 import AddExpensePage from "./pages/AddExpensePage";
@@ -34,6 +35,7 @@ const App = () => (
                 <Route path="register" element={<RegisterPage />} />
                 <Route path="trips" element={<TripsPage />} />
                 <Route path="create-trip" element={<CreateTripPage />} />
+                <Route path="join-trip" element={<JoinTripPage />} />
                 <Route path="trip/:tripId" element={<TripDetailsPage />} />
                 <Route path="trip/:tripId/photos/add" element={<AddPhotoPage />} />
                 <Route path="trip/:tripId/expenses/add" element={<AddExpensePage />} />

@@ -58,18 +58,37 @@ export default function LandingPage() {
                   Share photos, track expenses, and never lose each other again.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white"
-                  onClick={() => navigate(authState.isAuthenticated ? "/trips" : "/register")}
-                >
-                  {authState.isAuthenticated ? "My Trips" : "Get Started"}
-                </Button>
-                <Button variant="outline" size="lg" onClick={() => navigate("/login")}>
-                  {authState.isAuthenticated ? "Create Trip" : "Log In"}
-                </Button>
-              </div>
+              {authState.isAuthenticated ? (
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white"
+                    onClick={() => navigate("/create-trip")}
+                  >
+                    Create Trip
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => navigate("/join-trip")}
+                  >
+                    Join Trip
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white"
+                    onClick={() => navigate("/register")}
+                  >
+                    Get Started
+                  </Button>
+                  <Button variant="outline" size="lg" onClick={() => navigate("/login")}>
+                    Log In
+                  </Button>
+                </div>
+              )}
             </div>
             <div className="relative flex items-center justify-center lg:justify-end">
               <img
