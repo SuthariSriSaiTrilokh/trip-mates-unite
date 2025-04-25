@@ -1,11 +1,10 @@
-
+import React, { useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTrip } from "@/contexts/TripContext";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { mockUsers } from "@/data/mockData";
 import { useAuth } from "@/contexts/AuthContext";
 import { Camera, CreditCard, Hotel, MapPin, Users } from "lucide-react";
-import { useEffect, useState } from "react";
 import { TripHeader } from "@/components/trip/TripHeader";
 import { TripPhotos } from "@/components/trip/TripPhotos";
 import { TripLocations } from "@/components/trip/TripLocations";
@@ -13,9 +12,11 @@ import { TripExpenses } from "@/components/trip/TripExpenses";
 import { TripHotels } from "@/components/trip/TripHotels";
 import { TripFriends } from "@/components/trip/TripFriends";
 import { User } from "@/types";
+import { Button } from "@/components/ui/button";
 
 export default function TripDetailsPage() {
   const { tripId } = useParams();
+  const navigate = useNavigate();
   const { trips, setCurrentTrip, photos, expenses, nearbyHotels, getNearbyHotels } = useTrip();
   const { authState } = useAuth();
   const [participants, setParticipants] = useState<User[]>([]);
